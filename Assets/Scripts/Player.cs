@@ -4,34 +4,43 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public GameObject manager;
     public int moveSpeed = 5;
 
-    public bool paused = true; 
+    void Start()
+    {
+        manager = GameObject.Find("Manager");
+    }
 
-	void FixedUpdate () {
+
+    void FixedUpdate () {
+
+        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (Input.GetAxis("Horizontal") < 0)
         {
             gameObject.transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
-            paused = false;
+            manager.GetComponent<TimeManager>().Unpause();
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
             gameObject.transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
-            paused = false;
+            manager.GetComponent<TimeManager>().Unpause();
         }
         if (Input.GetAxis("Vertical") < 0)
         {
             gameObject.transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
-            paused = false;
+            manager.GetComponent<TimeManager>().Unpause();
         }
         if (Input.GetAxis("Vertical") > 0)
         {
             gameObject.transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-            paused = false;
+            manager.GetComponent<TimeManager>().Unpause();
         }
 
         if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-            paused = true;
+            manager.GetComponent<TimeManager>().Pause();
     }
 }
