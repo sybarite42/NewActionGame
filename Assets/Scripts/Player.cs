@@ -13,34 +13,11 @@ public class Player : MonoBehaviour {
     }
 
 
-    void FixedUpdate () {
+    void Update()
+    {
 
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            gameObject.transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
-            manager.GetComponent<TimeManager>().Unpause();
-        }
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            gameObject.transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
-            manager.GetComponent<TimeManager>().Unpause();
-        }
-        if (Input.GetAxis("Vertical") < 0)
-        {
-            gameObject.transform.Translate(Vector2.down * Time.deltaTime * moveSpeed);
-            manager.GetComponent<TimeManager>().Unpause();
-        }
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            gameObject.transform.Translate(Vector2.up * Time.deltaTime * moveSpeed);
-            manager.GetComponent<TimeManager>().Unpause();
-        }
-
-        if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
-            manager.GetComponent<TimeManager>().Pause();
     }
 }
