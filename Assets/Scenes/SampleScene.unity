@@ -234,9 +234,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 50998781763295370, guid: 49e692f6e36072d47bb7dd510ec38166,
+    - target: {fileID: 114479231685671026, guid: 49e692f6e36072d47bb7dd510ec38166,
         type: 2}
-      propertyPath: m_CollisionDetection
+      propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

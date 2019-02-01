@@ -8,6 +8,9 @@ public class Weapon : MonoBehaviour {
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    private float coolDown;
+
+
     void Start()
     {
         manager = GameObject.Find("Manager");
@@ -15,8 +18,12 @@ public class Weapon : MonoBehaviour {
 
     void Update () {
 
-        if (Input.GetButtonDown("Fire1"))
+        if(coolDown > 0)
+            coolDown -= Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1") && coolDown <= 0)
         {
+            coolDown = 0.3f;
             Shoot();
         }
 	}

@@ -1,0 +1,36 @@
+TODO
+
+
+Enemies
+	Enemy HP
+		Floating damage numbers
+		HP Bar
+	Pathing
+	Shooting
+	Melee
+	
+	Make into superclass
+		Enemies inherit from it to have different hp and weapons
+		
+		
+Player
+	HP
+	Pickups
+	Levels/Scrap?
+		Abilities?
+		Skills?
+	Inventory
+		Crafting
+		Hotbar
+			Different weapons
+	Melee
+	Death
+		Fresh restart?
+	
+Levels
+	Procedural
+	Spawning
+	Looting
+	
+
+	
