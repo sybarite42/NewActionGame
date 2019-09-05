@@ -1,36 +1,26 @@
-TODO
 
 
-Enemies
+Enemies	Superclass
 	Enemy HP
 		Floating damage numbers
 		HP Bar
 	Pathing
+		Get in range of player if in sight
+		Move to last known position
 	Shooting
-	Melee
 	
-	Make into superclass
-		Enemies inherit from it to have different hp and weapons
-		
+
 		
 Player
 	HP
-	Pickups
-	Levels/Scrap?
-		Abilities?
-		Skills?
-	Inventory
-		Crafting
-		Hotbar
-			Different weapons
-	Melee
+	Shooting
 	Death
-		Fresh restart?
+		Fresh restart
+		
 	
 Levels
 	Procedural
 	Spawning
-	Looting
+	Saving
 	
-
 	

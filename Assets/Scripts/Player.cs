@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public GameObject manager;
+    private GameObject manager;
     public int moveSpeed = 5;
 
     void Start()
@@ -19,5 +19,7 @@ public class Player : MonoBehaviour {
         var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
     }
 }

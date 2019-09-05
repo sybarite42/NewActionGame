@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     
-    public GameObject manager;
-    public GameObject target;
+    private GameObject manager;
+    private GameObject target;
+
+    public int rotateSpeed = 6;
     public int moveSpeed = 6;
+    
 
     void Start()
     {
@@ -18,9 +21,21 @@ public class Enemy : MonoBehaviour {
 
         if (!manager.GetComponent<TimeManager>().IsPaused())
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-        }
 
+            Vector3 vectorToTarget = target.transform.position - transform.position;
+
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotateSpeed);
+
+
+
+
+
+
+
+        }
     }
-   
 }

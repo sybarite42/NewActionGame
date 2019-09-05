@@ -1,0 +1,24 @@
+
+
+
+
+Levels
+	Looting
+	
+Weapon Superclass
+	Firerate
+	Damage
+	Effects
+		ie. Fire, explosive
+	Ammo?
+		What if out
+		
+Enemies
+	Drop Scrap
+	Use Weapons Superclass
+	
+Player
+	Upgrades
+		Weapon
+		Armor
+	Punchback
