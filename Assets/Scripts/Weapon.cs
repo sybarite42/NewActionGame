@@ -22,29 +22,30 @@ public class Weapon : MonoBehaviour {
 
 	void FixedUpdate () {
 
-        var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		var targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float radius = 1.5f;
+		float radius = 1.5f;
 
-        Vector3 centerPosition = player.transform.position;
-        Vector3 currentPosition = transform.position;
+		Vector3 centerPosition = player.transform.position;
+		Vector3 currentPosition = transform.position;
 
-        float distance = Vector3.Distance(currentPosition, centerPosition);
-        
-        if (distance > radius)
-        {
-            Vector3 v = currentPosition - centerPosition;
-            v = Vector3.ClampMagnitude(v, radius);
-            currentPosition = centerPosition + v;
-            transform.position = currentPosition;
-        }
-        else
-        {
-            
-            targetPos.z = transform.position.z;
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-        }
-        
+		float distance = Vector3.Distance(currentPosition, centerPosition);
+		float mouseDistance = Vector3.Distance(targetPos, centerPosition) -10;
+
+
+		if (distance >= radius)
+		{
+			Vector3 v = currentPosition - centerPosition;
+			v = Vector3.ClampMagnitude(v, radius);
+			currentPosition = centerPosition + v;
+			transform.position = currentPosition;
+		}
+		if(mouseDistance < radius)
+		{
+			targetPos.z = transform.position.z;
+			transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+		}
+		
 
 
 
